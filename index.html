@@ -1,17 +1,62 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <!--    <link rel="stylesheet" href="public/reset.css" />-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vite App</title>
+    <style>
+      @import 'public/reset.css';
+      html {
+        font-size: 24px;
+        background-color: #ccc;
+      }
+      .card {
+        background-color: #fff;
+        width: 210px;
+        margin: 0 auto;
+        text-align: center;
+        border: 1px solid #222;
+      }
+      .card img {
+        margin-bottom: 5px;
+      }
+      .card > .price {
+        color: #666;
+        font-size: 0.75rem;
+      }
+      .card p:not(:last-child) {
+        margin-bottom: 1rem;
+      }
+      button {
+        border: none;
+        width: 100%;
+        background-color: black;
+        color: white;
+        padding: 0.5rem 0;
+      }
+      button:hover {
+        background-color: #444;
+      }
+      .card > h1 {
+        font-size: 2rem;
+        line-height: 1.5;
+        letter-spacing: 1px;
+        font-weight: bold;
+        margin-bottom: 0.25rem;
+      }
+      .card .text {
+        font-size: li;
+      }
+    </style>
   </head>
   <body>
     <div class="card">
-      <img src="img.png" alt="face" style="width: 150px height=50px" />
+      <img src="img.png" alt="face" style="width: 100%" />
       <h1>Tailored Jeans</h1>
       <p class="price">$19.99</p>
-      <p>Some text about the jeans..</p>
+      <p class="text">Some text about the jeans..</p>
       <p><button>Add to Cart</button></p>
     </div>
     <script type="module" src="/main.js"></script>
