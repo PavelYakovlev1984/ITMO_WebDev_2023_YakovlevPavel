@@ -8,4 +8,7 @@ export default defineConfig({
     https: true,
   },
   plugins: [mkcert()],
+  build: {
+    minify: true,
+  },
 });
