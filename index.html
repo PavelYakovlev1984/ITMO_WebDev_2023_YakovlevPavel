@@ -42,7 +42,7 @@
   <body>
     <div class="flex flex-col h-screen">
       <header class="flex flex-row text-neutral-500 justify-between items-center px-8 py-4" style="background-color: pink;">
-        <nav class="flex flex-row">
+        <nav class="hidden sm:flex flex-row">
           <div class="hover:text-black">Features</div>
           <img src="./" alt="">
           <div class="">Company</div>
@@ -53,25 +53,31 @@
           <div>Login</div>
           <div class="btn-register">Register</div>
         </div>
+        <div class="font-bold h-full object-cover">
+
+
+
+               <img src="./public/icon-menu.svg" alt="">
+        </div>
       </header>
-      <main class="flex flex-row container mx-auto">
-        <div class="flex flex-col">
-          <div class="flex flex-col w-1/2 h-full justify-center items-start gap-y-12">
-            <div class="text-6xl font-bold">Make remote work</div>
+                                <main class="flex flex-col sm:flex-row container mx-auto">
+        <div class="flex flex-col order-1 sm:order-0 sm:w-full">
+          <div class="flex flex-col w-1/2 h-full order-0 sm:order-1 justify-center items-start gap-y-12">
+            <div class="text-6xl font-bold sm:text-left">Make remote work</div>
             <div class="text-lg">Get your team in sync, no matter
               your location. Streamline processes,
               create team rituals, and watch productivity soar.
             </div>
             <div class="btn-learnmore">Learn more</div>
           </div>
-          <div class="flex flex-row w-full gap-x-4 justify-start gap-y-4">
+          <div class="flex flex-row w-full gap-x-4 justify-start gap-y-4 order-1 sm:order-0">
             <img class="h-6" src="public/client-audiophile.svg" alt="">
             <img class="h-6" src="public/client-databiz.svg" alt="">
             <img class="h-6" src="public/client-maker.svg" alt="">
             <img class="h-6" src="public/client-meet.svg" alt="">
           </div>
         </div>
-        <div class="flex flex-col w-1/2 ">
+        <div class="flex flex-col w-1/2 order-0 sm:order-1">
           <div class="overflow-hidden h-full"><img class="w-full h-full object-contain" src="./images/image-hero-desktop.png" alt=""></div>
         </div>
       </main>
