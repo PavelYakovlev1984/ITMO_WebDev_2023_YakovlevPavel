@@ -6,21 +6,24 @@
     <!-- displays site properly based on user's device -->
 
     <link rel="icon" type="image/png" sizes="32x32" href="public/favicon-32x32.png" />
-<!--    <link rel="preconnect" href="https://fonts.googleapis.com">-->
-<!--    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>-->
-    <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@700&display=swap" rel="stylesheet">
+    <!--    <link rel="preconnect" href="https://fonts.googleapis.com">-->
+    <!--    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>-->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:wght@700&display=swap"
+      rel="stylesheet"
+    />
 
     <title>Frontend Mentor | Intro section with dropdown navigation</title>
 
     <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
 
-<!--      .attribution {-->
-<!--        font-size: 11px;-->
-<!--        text-align: center;-->
-<!--      }-->
-<!--      .attribution a {-->
-<!--        color: hsl(228, 45%, 44%);-->
-<!--      }-->
+    <!--      .attribution {-->
+    <!--        font-size: 11px;-->
+    <!--        text-align: center;-->
+    <!--      }-->
+    <!--      .attribution a {-->
+    <!--        color: hsl(228, 45%, 44%);-->
+    <!--      }-->
   </head>
 
   <style>
@@ -32,42 +35,103 @@
     }
     @layer components {
       .btn-register {
-        @apply border-2 border-gray-500 rounded-lg px-3 py-1.5 hover:text-black;
+        @apply border-0 border-gray-500 rounded-none px-3 py-2 hover:bg-black;
       }
     }
   </style>
   <body>
-    <div class="flex flex-col h-screen">
-      <header class="flex flex-row text-neutral-500 justify-between items-center px-8 py-4" style="background-color: pink;">
-        <nav class="flex flex-row">
-          <div class="hover:text-black">Features</div>
-          <img src="./" alt="">
-          <div class="">Company</div>
-          <div>Careers</div>
-          <div>About</div>
+    <div class="container mx-auto flex flex-col h-screen pt-5">
+      <header class="flex flex-row justify-between justify-center py-11">
+        <div class="w-50 h-50">
+          <img src="./public/logo.svg" alt="logo" />
+        </div>
+        <nav class="flex flex-col justify-center">
+          <ul class="flex flex-row gap-5">
+            <li>Home</li>
+            <li>New</li>
+            <li>Popular</li>
+            <li>Trending</li>
+            <li>Categories</li>
+          </ul>
         </nav>
-        <div class="flex">
-          <div>Login</div>
-          <div class="btn-register">Register</div>
-        </div>
       </header>
-      <main class="flex flex-row">
-        <div class="flex flex-col w-1/2">
-        <div>Make remote work</div>
-        <div>Get your team in sync, no matter
-          your location. Streamline processes,
-          create team rituals, and watch productivity soar.
+      <section class="flex flex-row gap-5 mb-9">
+        <div class="flex flex-col w-2/3">
+          <div class="flex flex-row mb-5">
+            <img class="w-full" src="./public/image-web-3-desktop.jpg" alt="" />
+          </div>
+          <div class="flex flex-row gap-5">
+            <div class="flex flex-col w-1/2">
+              <h1 class="text-6xl font-medium">The Bright Future of Web 3.0?</h1>
+            </div>
+            <div class="flex flex-col w-1/2 gap-5">
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet architecto at
+                deserunt enim eum, explicabo impedit ipsum minima qui rerum sint voluptas! Ad amet
+                culpa cum dolores expedita, ipsa vel.
+              </p>
+              <button
+                class="tracking-[0.3rem] btn-register h-14 w-1/2 bg-[#f15d51] text-white uppercase items-start"
+              >
+                read more
+              </button>
+            </div>
+          </div>
         </div>
-        <div>Learn more</div>
-      </div>
-        <div class="flex flex-col w-1/2 ">
-          <div class="overflow-hidden full h-full"><img class="w-full h-full \
-
-
-            object-contain" src="./images/image-hero-desktop.png" alt=""></div>
+        <div class="flex flex-col w-1/3 bg-[#00001a] p-5 justify-between">
+          <p class="text-[#efaf4d] uppercase text-bold font-bold text-4xl pt-5">New</p>
+          <div class="underline">
+            <h3 class="text-white my-5">Hydrogen VS Electric Cars</h3>
+            <p class="text-[#545569]">Will hydrogen-fueled cars ever catch up to EVs?</p>
+          </div>
+          <hr style="background-color: hsl(233, 8%, 79%)" />
+          <div>
+            <h3 class="text-white my-5">The Downsides of AI Artistry</h3>
+            <p class="text-[#545569]">
+              What are the possible adverse effects of on-demand AI image generation?
+            </p>
+          </div>
+          <hr style="background-color: hsl(233, 8%, 79%)" />
+          <div>
+            <h3 class="text-white my-5">Is VC Funding Drying Up?</h3>
+            <p class="text-[#545569]">
+              Private funding by VC firms is down 50% YOY. We take a look at what that means.
+            </p>
+          </div>
         </div>
-      </main>
+      </section>
+      <section class="flex flex-row gap-3 mb-11">
+        <flex class="flex flex-col w-1/3">
+          <div class="flex flex-row gap-5">
+            <img class="w-24 h-32" src="./public/image-retro-pcs.jpg" alt="" />
+            <div class="flex flex-col justify-between">
+              <div class="text-stone-300 text-5xl">01</div>
+              <p class="font-bold text-2xl">Reviving Retro PCs</p>
+              <p>What happens when old PCs are given modern upgrades?</p>
+            </div>
+          </div>
+        </flex>
+        <flex class="flex flex-col w-1/3">
+          <div class="flex flex-row gap-5">
+            <img class="w-24 h-32" src="./public/image-top-laptops.jpg" alt="laptops" />
+            <div class="flex flex-col justify-between">
+              <div class="text-stone-300 text-5xl">02</div>
+              <p class="font-bold text-2xl">Top 10 Laptops of 2022</p>
+              <p>Our best picks for various needs and budgets.</p>
+            </div>
+          </div>
+        </flex>
+        <flex class="flex flex-col w-1/3 mb-11">
+          <div class="flex flex-row gap-5">
+            <img class="w-24 h-32" src="./public/image-gaming-growth.jpg" alt="gaming" />
+            <div class="flex flex-col">
+              <div class="text-stone-300 text-5xl">03</div>
+              <p class="font-bold text-2xl justify-between">The Growth of Gaming</p>
+              <p>How the pandemic has sparked fresh opportunities.</p>
+            </div>
+          </div>
+        </flex>
+      </section>
     </div>
-   
   </body>
 </html>
