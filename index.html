@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite App</title>
+  </head>
+  <body class="bg-teal-500/50 w-screen h-screen grid place-items-center p-2 font-sans">
+    <div class="container flex flex-row w-full h-full rounded-3xl bg-gray-200 p-4 f">
+      <aside class="flex flex-col min-w-[144px] bg-yellow-500/10 iconify p-4">
+        <div class="flex flex-row gap-x-2">
+          <i class="text-teal-700 text-3xl i-mdi:cube-scan"></i>
+          <span class="font-bold text-xl">Taski</span>
+        </div>
+      </aside>
+      <main class="flex flex-col bg-gray-50 rounded-2xl w-full">
+        <div class="flex flex-row justify-between p-4 items-center gap-x-4">
+          <span class="text-lg font-col">Team task</span>
+          <div>
+            <span class="">Search</span>
+            <button class="px-3 py-2 bg-teal-600 rounded-2xl">+Create task</button>
+          </div>
+        </div>
+        <div class="text-neutral-200 flex flex-row justify-between p-4 items-center gap-x-4">
+          <div class="flex flex-row items-center gap-x-2">
+            <i class="i-material-symbols:filter-alt hover:text-neutral-600"></i>
+            <span class="text-lg">Filters</span>
+            <i class="i-mdi:chevron-down hover:text-neutral-600"></i>
+          </div>
+          <div class="flex flex-row">
+            <div class="flex flex-row">
+              <span class="text-neutral-500">Sort by</span
+              ><i class="i-material-symbols:filter-alt hover:text-neutral-600"></i>
+            </div>
+            <span class="text-neutral-500">Group by:Status</span>
+          </div>
+        </div>
+        <div class="flex flex-row h-full">
+          <div class="justify-between flex flex-col w-1/3 bg-gray-200 rounded-3xl h-full">
+            <div class="flex flex-row justify-between">
+              <div class="flex flex-col">To DO</div>
+              <div class="flex flex-col">...+</div>
+            </div>
+            <div class="flex flex-row">Cards</div>
+          </div>
+        </div>
+      </main>
+    </div>
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>
