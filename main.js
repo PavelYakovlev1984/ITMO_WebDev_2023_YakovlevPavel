@@ -1,3 +1,5 @@
+
+
 const DOM = document.getElementById.bind(document);
 
 const domInputName = DOM("inpName");
