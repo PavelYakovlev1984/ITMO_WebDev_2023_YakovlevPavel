@@ -1,20 +1,27 @@
-const Dom = {
+const DOM = {
   Button: {
     CREATE_TASK: 'btnCreateTask',
-    CLOSE_POPUP_CREATE_TASK: 'btnCloseCreateTaskPopup',
-    POPUP_CREATE_TASK_CONFIRM: 'btnConfigTaskPopup',
+    POPUP_CREATE_TASK_CLOSE: 'btnCloseCreateTaskPopup',
+    POPUP_CREATE_TASK_CONFIRM: 'btnConfirmTaskPopup',
   },
   Template: {
-    TASK: 'templateTAsk',
+    TASK: 'templateTask',
     Task: {
       TITLE: 'templateTaskTitle',
     },
   },
   Popup: {
     CREATE_TASK: 'popupCreateTask',
+    Input: {
+      INFO_TITLE: 'inpTitle',
+      INFO_DATE: 'inpDate',
+      USER_DATE: 'userDate',
+      INFO_TAG: 'countries',
+    },
     CreateTask: {
       TITLE: 'title',
     },
   },
 };
-export default Dom;
+
+export default DOM;

@@ -1,7 +1,7 @@
 import 'uno.css';
 import '@unocss/reset/tailwind.css';
 import DOM from './src/contants/dom';
-import { randomString } from './src/utils/stringsUtils.js';
+import { randomString } from './src/utils/stringsUtils';
 
 const KEY_LOCAL_TASKS = 'tasks';
 
@@ -18,18 +18,13 @@ class TaskVO {
     this.tag = tag;
   }
 }
-
-// const task = new TaskVO("Read", Date.now(), Tags[0]);
-
+const getDOM = (id) => document.getElementById(id);
 const QUERY = (container, id) => container.querySelector([(id = '${id}')]);
 
-const domTaskColumn = domTemplateTask.parentNode;
-domTemplateTask.remove();
-const getDOM = (id) => document.getElementById(id);
-domTaskColumn.onclick = (e) => {
-  console.log(e.target);
-};
 const domTemplateTask = getDOM(DOM.Template.TASK);
+const domTaskColumn = domTemplateTask.parentNode;
+domTemplateTask.removeAttribute('id');
+domTemplateTask.remove();
 
 const rawTasks = localStorage.getItem(KEY_LOCAL_TASKS);
 
@@ -39,8 +34,14 @@ const tasks = rawTasks
 tasks.forEach((taskVO) => renderTask(taskVO));
 console.log('> tasks', tasks);
 
+domTaskColumn.onclick = (e) => {
+  console.log('domTaskColumn', e.target);
+};
 getDOM(DOM.Button.CREATE_TASK).onclick = () => {
   console.log('> domPopupCreateTask.classList');
+  renderTaskPopup('create task', 'Create', () => {
+    console.log('on confirm');
+  });
 
   const domPopupCreateTask = getDOM(DOM.Popup.CREATE_TASK);
   const domBtnClose = QUERY(
@@ -62,23 +63,27 @@ getDOM(DOM.Button.CREATE_TASK).onclick = () => {
   };
 
   domBtnConfirm.onclick = () => {
-    const taskId = `task_${Date.now()}`;
     let titleInfo = domInputTitle.value;
-    domInputTitle.innerHTML = titleInfo;
-
-    const taskVO = new TaskVO(titleInfo, Date.now(), Tags[0]);
-
-    renderTask(taskVO);
-
-    tasks.push(taskVO);
-
-    localStorage.setItem(KEY_LOCAL_TASKS, JSON.stringify(tasks));
-
+    onCreateTaskClick(titleInfo);
     onClosePopup();
+    renderTaskPopup();
   };
 };
 
-domTitle.innerText = popupTitle;
+const popup = div.children[0];
+const domBtnClose = popup.querySelector('[data-id="btnClose"]');
+const domBtnConfig = popup.querySelector('[data-id="btnConfig"]');
+
+function onCreateTaskClick(titleInfo) {
+  // domInputTitle.innerHTML = titleInfo;
+
+  const taskId = task;
+  const taskVO = new TaskVO(taskId, titleInfo, Date.now(), Tags[0]);
+
+  renderTask(taskVO);
+  tasks.push(taskVO);
+  localStorage.setItem(KEY_LOCAL_TASKS, JSON.stringify(tasks));
+}
 
 function renderTask(taskVO) {
   const domTaskClone = domTemplateTask.cloneNode(true);
@@ -87,8 +92,21 @@ function renderTask(taskVO) {
   domTaskColumn.prepend(domTaskClone);
 }
 
-function onCreateTaskClick() {
-  const taskId = `task_${Date.now()}`;
-  const taskTitle = randomString(12);
+function renderTaskPopup() {
+  domPopupCreateTask.classList.remove('hidden');
+  const domPopupContainer = getDOM(DOM.Popup.CONTAINER);
+
+  console.log(TaskPopup);
+
+  return;
+
+  const domPopupCreateTask = getDOM(DOM.Popup.CREATE_TASK);
+  const domBtnClose = QUERY(
+    domPopupCreateTask,
+    DOM.Button.POPUP_CREATE_TASK_CLOSE
+  );
+  const domBtnConfirm = QUERY(
+    domPopupCreateTask,
+    DOM.Button.POPUP_CREATE_TASK_CONFIRM
+  );
 }
-// function renderTaskPopup =
