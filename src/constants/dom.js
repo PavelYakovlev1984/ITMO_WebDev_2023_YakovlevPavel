@@ -1,4 +1,4 @@
-const DOM = {
+const Dom = {
   Button: {
     CREATE_TASK: 'btnCreateTask',
     POPUP_CREATE_TASK_CLOSE: 'btnCloseCreateTaskPopup',
@@ -8,20 +8,16 @@ const DOM = {
     TASK: 'templateTask',
     Task: {
       TITLE: 'templateTaskTitle',
+      BTN_EDIT: 'btnEdit',
+      BTN_DELETE: 'btnDelete',
     },
   },
   Popup: {
-    CREATE_TASK: 'popupCreateTask',
-    Input: {
-      INFO_TITLE: 'inpTitle',
-      INFO_DATE: 'inpDate',
-      USER_DATE: 'userDate',
-      INFO_TAG: 'countries',
-    },
+    CONTAINER: 'popupContainer',
     CreateTask: {
       TITLE: 'title',
     },
   },
 };
 
-export default DOM;
+export default Dom;
