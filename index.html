@@ -24,7 +24,7 @@
   id="popupContainer"
   class="hidden fixed w-screen h-screen top-0 left-0 bg-black/70 z-10 grid place-items-center"
 >
-  <div class="spinner"></div>
+  <div data-test-id="task-popup" class="spinner"></div>
 </div>
 <div class="container flex flex-row w-full h-full bg-gray-200 rounded-3xl p-4">
   <aside class="flex flex-col min-w-[120px]">
@@ -81,7 +81,7 @@
         class="flex flex-col h-full w-1/2 bg-gray-200 border-1 border-gray-300/50 rounded-xl p-2"
       >
         <div class="flex flex-row justify-between py-1 px-1">
-          <div class="flex flex-row font-bold gap-x-1">
+          <div data-test-id="task-column" class="flex flex-row font-bold gap-x-1">
             <span>To Do </span>
             <span class="text-gray-400">2</span>
           </div>

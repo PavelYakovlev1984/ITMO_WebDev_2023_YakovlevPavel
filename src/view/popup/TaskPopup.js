@@ -46,6 +46,7 @@ class TaskPopup {
             <input
               class="bg-neutral-100 p-1.5 rounded w-full border-1 border-neutral-200"
               type="date"
+              
               value="$(this.#taskTitle"
               id="inpDate"
               name="trip-start"
@@ -81,7 +82,7 @@ class TaskPopup {
 
     const domBtnClose = popup.querySelector('[data-id="btnClose"]');
     const domBtnConfirm = popup.querySelector('[data-id="btnConfirm"]');
-    const domBInpTitle = popup.querySelector('[data-id="inpTitle"]');
+    const domInpTitle = popup.querySelector('[data-id="inpTitle"]');
 
     domBtnClose.onclick = () => {
       domBtnClose.onclick = null;
@@ -90,7 +91,7 @@ class TaskPopup {
     };
 
     domBtnConfirm.onclick = () => {
-      const taskTitle = domBInpTitle.value;
+      const taskTitle = domInpTitle.value;
       const taskDate = Date.now();
       const taskTags = this.#tags[0];
       this.#confirmCallback(taskTitle, taskDate, taskTags);
