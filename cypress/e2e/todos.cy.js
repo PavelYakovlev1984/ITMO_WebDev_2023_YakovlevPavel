@@ -34,17 +34,17 @@ describe('Test Todo Page', () => {
     const todoTaskText = 'Welcome Task';
 
     popupTask.should('exist').should('be.visible');
-    popupTask
-      .find('[data-id="inpTitle"]')
+
+    cy.get('[data-id="inpTitle"]')
       .should('exist')
       .should('have.value', '')
       .type(todoTaskText);
 
-    cy.get('[id="btnConfirm"]')
+    cy.get('[data-id="btnConfirm"]')
       .should('exist')
       .should('contain.text', 'Create')
       .click();
-    cy.get('[data-test-id="tasks=column"]')
+    cy.get('[data-test-id="tasks-column"]')
       .should('exist')
       .children()
       .should('have.length', 2)
