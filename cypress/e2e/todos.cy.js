@@ -1,6 +1,6 @@
 import DOM from '../../src/constants/dom';
 
-const SERVER_URL = 'http://localhost:5173/';
+const SERVER_URL = 'http://localhost:4173/';
 
 describe('Test Todo Page', () => {
   beforeEach(() => {
