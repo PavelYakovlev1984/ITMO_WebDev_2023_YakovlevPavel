@@ -90,5 +90,12 @@ describe('Test Todo Page', () => {
       .should('exist')
       .should('contain.text', 'Delete')
       .click();
+
+    tasks.pop();
+
+    checkNumberOfTasksInColumnMatch(tasks.length);
+    tasks.forEach((text) => {
+      getColumnChildren().should('contain.text', text);
+    });
   });
 });
