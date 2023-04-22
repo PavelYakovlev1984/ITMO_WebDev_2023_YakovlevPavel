@@ -59,6 +59,7 @@ describe('Test Todo Page', () => {
   });
   it.only('user create tasks and delete one', () => {
     clickOnCreateTaskButton();
+
     cy.wait('@getTaskPopup');
     const todoTaskText = 'Welcome Task';
     createTaskFromPopup(todoTaskText);
