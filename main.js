@@ -1,6 +1,7 @@
 import 'uno.css';
 import '@unocss/reset/tailwind.css';
 import DOM from './src/constants/dom';
+import { delay } from './src/utils/timeUtils.js';
 
 const KEY_LOCAL_TASKS = 'tasks';
 
@@ -27,13 +28,15 @@ domTemplateTask.removeAttribute('id');
 domTemplateTask.remove();
 
 const rawTasks = localStorage.getItem(KEY_LOCAL_TASKS);
-fetch('http://localhost:3000/tasks').then( (response)  => {
-  return response.ok && response.json();
-}).then((json) => {
-  if (json && json instanceof  Object) {
-    console.log('json', json);
-  }
-})
+fetch('http://localhost:3000/tasks')
+  .then((response) => {
+    return response.ok && response.json();
+  })
+  .then((json) => {
+    if (json && json instanceof Object) {
+      console.log('json', json);
+    }
+  });
 
 const tasks = rawTasks
   ? JSON.parse(rawTasks).map((json) => TaskVO.fromJSON(json))
@@ -176,39 +179,42 @@ async function renderTaskPopup(
     taskPopupInstance.taskTitle = taskVO.title;
   }
 
-  // setTimeout(() => {
-  domSpinner.remove();
-  document.onkeyup = (e) => {
-    if (e.key === 'Escape') {
-      onClosePopup();
-  //   }
-  // };
-  domPopupContainer.append(taskPopupInstance.render());
-  // }, 1000);
+  setTimeout(() => {
+    domSpinner.remove();
+    document.onkeyup = (e) => {
+      if (e.key === 'Escape') {
+        onClosePopup();
+      }
+    };
+    domPopupContainer.append(taskPopupInstance.render());
+  }, 1000);
 }
 
-delay(1000).then(() => {
-  console.log('render 1');
-  domSpinner.remove();
-  document.onkeyup = (e) => {
-    if (e.key === 'Escape') {
-      onClosePopup();
-    }
-  };
-  domPopupContainer.append(taskPopupInstance.render());
-});
+// delay(1000).then(() => {
+//   console.log('render 1');
+//   domSpinner.remove();
+//   document.onkeyup = (e) => {
+//     if (e.key === 'Escape') {
+//       onClosePopup();
+//     }
+//   };
+//   domPopupContainer.append(taskPopupInstance.render());
+// });
 
 new Promise((resolve, reject) => {
   console.log('render2');
   resolve();
-  console.log("render2-1");
-}).then(() => {
-  console.log('render -> then');
-}).catch(() => {
-  console.log('render -> catch');
-}).finally(()=> {
-  console.log('render -> finally');
-});
+  console.log('render2-1');
+})
+  .then(() => {
+    console.log('render -> then');
+  })
+  .catch(() => {
+    console.log('render -> catch');
+  })
+  .finally(() => {
+    console.log('render -> finally');
+  });
 
 console.log('render 0');
 
