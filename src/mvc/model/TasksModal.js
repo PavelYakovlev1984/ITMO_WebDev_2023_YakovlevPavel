@@ -10,7 +10,7 @@ class TasksModal {
   addUpdateCallback(callback) {
     if (!callback || !(callback instanceof Function)) throw new Error(`Wrong`);
     this.#updateCallbacks.push(callback);
-    this.#update();
+    this.#notify();
   }
 
   #update() {
@@ -28,4 +28,11 @@ addTasktaskVO( ){
   console.log('>TaskModel -> addTask:', taskVO);
   this.#tasks.push(taskVO);
 }
+updateTaskById(taskId, data) {
+  console.log('> TaskModel -> update');
+  const taskVO = this.getTaskById(taskId);
+  Object.assign(taskVO, data);
+  this.#notify();
+}
 export default TasksModal;
+
