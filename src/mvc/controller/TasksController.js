@@ -23,10 +23,14 @@ class TasksController {
         return [];
       });
   }
+
+  deleteTask(taskId) {
+    console.log('> TaskController');
+  }
   createTask(taskTitle, taskDate, taskTags) {
     console.log('> Create task -> On Confirm');
 
-    fetch('http://localhost:3000/tasks', {
+    return fetch('http://localhost:3000/tasks', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -36,7 +40,16 @@ class TasksController {
         date: taskDate,
         tags: taskTags,
       }),
-    });
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        const taskVO = TaskVO.fromJSON(data);
+        this.#model.addTask(taskVO);
+      })
+      .catch((e) => {
+        console.error('>');
+        throw new Error(e.toString());
+      });
 
     const taskId = `task_${Date.now()}`;
     const taskVO = new TaskVO(taskId, taskTitle, taskDate, taskTags);
