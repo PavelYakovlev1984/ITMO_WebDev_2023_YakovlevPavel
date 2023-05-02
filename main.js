@@ -1,10 +1,13 @@
 import 'uno.css';
 import '@unocss/reset/tailwind.css';
+import 'toastify-js/src/toastify.css';
+import Toastify from 'toastify-js';
 import DOM from './src/constants/dom';
 import { delay } from './src/utils/timeUtils.js';
 import TasksModal from './src/mvc/model/TasksModal';
 import TasksController from './src/mvc/controller/TasksController.js';
 import TaskVO from './src/mvc/model/VO/TaskVO.js';
+
 
 const KEY_LOCAL_TASKS = 'tasks';
 
@@ -57,8 +60,23 @@ async function main() {
         null,
         'Create task',
         'Create',
+        Toastify({
+          text: "This is a toast",
+          duration: 3000,
+          destination: "https://github.com/apvarun/toastify-js",
+          newWindow: true,
+          close: true,
+          gravity: "top", // `top` or `bottom`
+          position: "left", // `left`, `center` or `right`
+          stopOnFocus: true, // Prevents dismissing of toast on hover
+          style: {
+            background: "linear-gradient(to right, #00b09b, #96c93d)",
+          },
+          onClick: function(){} // Callback after click
+        }).showToast();
         (taskTitle, taskDate, taskTags) => {
           console.log('> Create task -> On Confirm');
+          window.alert(`Error on server: ${error.toString()}`);
           taskController.createTask(taskTitle, taskDate, taskTags);
         }
       );
