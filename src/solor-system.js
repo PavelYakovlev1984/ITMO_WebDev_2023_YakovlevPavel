@@ -1,4 +1,3 @@
-
 class Planet {
   x;
   y;
@@ -25,8 +24,8 @@ class Planet {
   }
 
   move() {
-    this.x = planet.radius * Math.sin(this.alpha) + this.position.x;
-    this.y = planet.radius * Math.cos(this.alpha) + this.position.y;
+    this.x = this.radius * Math.sin(this.alpha) + this.position.x;
+    this.y = this.radius * Math.cos(this.alpha) + this.position.y;
     this.alpha += (this.speed * Math.PI) / 180;
   }
 }
@@ -40,4 +39,4 @@ class Position {
   }
 }
 
-export default 
+export { Planet, Position };

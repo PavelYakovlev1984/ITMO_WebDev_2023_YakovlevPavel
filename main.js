@@ -1,3 +1,5 @@
+import { Planet, Position } from './src/solor-system.js';
+
 const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
 
@@ -13,7 +15,6 @@ const planets = [
   new Planet(centerPosition, 0.1, 60, 'gold', 150),
 ];
 
-// move();
 let planet;
 const render = () => {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
