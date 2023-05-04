@@ -1,3 +1,5 @@
+import { PlanetRender } from './planetRender.js';
+
 class Planet {
   x;
   y;
@@ -6,7 +8,7 @@ class Planet {
   size;
   atmosphere;
 
-  renderObject;
+  planetRender;
   speed;
   constructor(
     center,
@@ -14,21 +16,19 @@ class Planet {
     size = 10,
     atmosphere,
     radius,
-    renderObject
+    planetRender
   ) {
     this.center = center;
-    this.atmosphere = atmosphere;
     this.radius = radius;
-    this.size = size;
     this.speed = speed;
     this.alpha = 0;
     this.isMoving = speed !== 0;
     this.position = new Position(center.x, center.y);
-    this.renderObject = renderObject;
+    this.planetRender = planetRender;
   }
   render(ctx) {
-    if (this.renderObject) {
-      this.renderObject.render(ctx, this);
+    if (this.planetRender) {
+      this.planetRender.render(ctx, this.position);
     } else {
       // ctx.beginPath();
       // ctx.fillStyle = this.atmosphere;
@@ -58,8 +58,15 @@ class Position {
 
 class Earth extends Planet {
   constructor(center) {
-    super(center, 2.2, 30, 'blue', 100);
-    this.moon = new Planet(this.position, 2.3, 10, '#333', 50);
+    super(center, 2.2, 30, 'blue', 100, new PlanetRender(30, 'blue'));
+    this.moon = new Planet(
+      this.position,
+      2.3,
+      10,
+      '#333',
+      50,
+      new PlanetRender(10, '#333')
+    );
   }
 
   move() {
