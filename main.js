@@ -1,4 +1,5 @@
 import { Earth, Planet, Position } from './src/solor-system.js';
+import { PlanetRender } from './src/planetRender.js';
 
 const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
@@ -7,24 +8,28 @@ canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
 const centerPosition = new Position(canvas.width / 2, canvas.height / 2);
-
-class RenderObject {
-  render(ctx, planet) {
-    ctx.beginPath();
-    ctx.fillStyle = planet.atmosphere;
-    ctx.arc(planet.position.x, planet.position.y, planet.size, 0, Math.PI * 2);
-    ctx.fill();
-    ctx.closePath();
-  }
-}
-const sun = new Planet(centerPosition, 0, 30, 'red', 100, new RenderObject());
+const sun = new Planet(
+  centerPosition,
+  0,
+  30,
+  'red',
+  100,
+  new PlanetRender(30, 'red')
+);
 
 const earth = new Earth(sun.position);
 
 const planets = [
   sun,
   earth,
-  new Planet(centerPosition, 0.1, 60, 'gold', 150, new RenderObject()),
+  new Planet(
+    centerPosition,
+    0.1,
+    60,
+    'gold',
+    150,
+    new PlanetRender(60, 'gold')
+  ),
 ];
 
 let planet;
